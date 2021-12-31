@@ -20,7 +20,7 @@ void Watchy::init(String datetime){
 
     // Init the display here for all cases, if unused, it will do nothing
     display.init(0, displayFullInit, 10, true); // 10ms by spec, and fast pulldown reset
-    display.epd2.setBusyCallback(displayBusyCallback);
+    // display.epd2.setBusyCallback(displayBusyCallback);
 
     switch (wakeup_reason)
     {
@@ -728,7 +728,7 @@ void Watchy::_bmaConfig(){
 }
 
 void Watchy::setupWifi(){
-    display.epd2.setBusyCallback(0); //temporarily disable lightsleep on busy
+    // display.epd2.setBusyCallback(0); //temporarily disable lightsleep on busy
     WiFiManager wifiManager;
     wifiManager.resetSettings();
     wifiManager.setTimeout(WIFI_AP_TIMEOUT);
@@ -748,7 +748,7 @@ void Watchy::setupWifi(){
     //turn off radios
     WiFi.mode(WIFI_OFF);
     btStop();
-    display.epd2.setBusyCallback(displayBusyCallback); //enable lightsleep on busy
+    // display.epd2.setBusyCallback(displayBusyCallback); //enable lightsleep on busy
     guiState = APP_STATE;
 }
 
